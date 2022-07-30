@@ -63,13 +63,13 @@ At the end just type for each environment, server(a server with Docker) and iot(
 #### Into the server
 
 ```
-docker compose -p uv-iga-server -up -d --build
+docker compose -p uv-iga-server up -d --build
 ```
 
 #### Into the IOT device
 
 ```
-docker compose -p uv-iga-iot -up -d --build
+docker compose -p uv-iga-iot up -d --build
 ```
 
 This commands will wake up the services access it thought port specified as follow.
