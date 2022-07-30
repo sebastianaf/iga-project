@@ -2,6 +2,8 @@
 
 This code is the final project of Introduction to Environmental Manage of the Universidad del Valle Cali, CO. It's a prototype of IOT based house water and energy consumption app, for more info read the `latex/main.pdf` essay.
 
+
+
 ## Requirements
 
 The code inside `server` folder is built using NodeJS with ExpressJS, ReactJS with Tailwindcss and PostgreSQL all over containers, and the code inside `iot` is for be used over RaspberryPi with at least ARMv6, in this project we use the components a analog to digital converter [ADS1015](https://pdf1.alldatasheet.com/datasheet-pdf/view/292738/TI/ADS1015.html), Temperature and humidity sensor [DHT11](https://components101.com/sensors/dht11-temperature-sensor), a water flow sensor [YF-S201](https://www.mantech.co.za/datasheets/products/yf-s201_sea.pdf), The Hall Effect sensor (to metter electric current) [SCT013](https://pdf1.alldatasheet.com/datasheet-pdf/view/1160244/YHDC/SCT013-050.html) and the Voltage metter sensor [ZMPT101B](https://pdf1.alldatasheet.com/datasheet-pdf/view/1131993/ETC2/ZMPT101B.html). To run this project make sure to install [Docker compose](https://docs.docker.com/).
@@ -74,15 +76,15 @@ This commands will wake up the services access it thought port specified as foll
 
 ```
 Server ports:
-9010 -> server-api      
-9020: server-db       
-9030: server-ui       
-9040: server-pgadmin  
+9010: api      
+9020: db       
+9030: ui       
+9040: pgadmin  
 
 IOT Device ports:
-9010: iot-mqtt-broker 
-9020: iot-db          
-9030: iot-pgadmin
+9010: mqtt-broker 
+9020: db          
+9030: pgadmin
 ```
 
 If you set the environment variable `API_CREATE_ADMIN` to `1` then the user credentials for first access are:
