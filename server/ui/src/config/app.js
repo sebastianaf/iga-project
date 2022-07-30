@@ -1,6 +1,6 @@
 const app = {
-    name: "generic-app",
-    version: "1.7.0"
+    name: "Homergy app",
+    version: "1.0.0"
 }
 
 export default app

@@ -1,9 +1,9 @@
 version: "3.8"
 
 services:
-  org-project-api:
-    container_name: org-project-api
-    image: org-project-api
+  uv-iga-server-api:
+    container_name: uv-iga-server-api
+    image: uv-iga-server-api
     restart: always
     environment:
       API_PORT: ${API_PORT}
@@ -22,15 +22,15 @@ services:
       dockerfile: Dockerfile
       args:
         API_PORT: ${API_PORT}
-    ports:
-      - 9010:${API_PORT}
+#    ports:
+#      - 9010:${API_PORT}
     depends_on:
-      - org-project-db
+      - uv-iga-server-db
     networks:
-      - org-project
+      - uv-iga-server
 
-  org-project-db:
-    container_name: org-project-db
+  uv-iga-server-db:
+    container_name: uv-iga-server-db
     restart: always
     image: postgres:latest
     environment:
@@ -40,14 +40,14 @@ services:
       TZ: ${TZ}
     volumes:
       - ./db-files:/var/lib/postgresql/data
-    ports:
-      - 9020:5432
+#    ports:
+#      - 9020:5432
     networks:
-      - org-project
+      - uv-iga-server
 
-  org-project-ui:
-    container_name: org-project-ui
-    image: org-project-ui
+  uv-iga-server-ui:
+    container_name: uv-iga-server-ui
+    image: uv-iga-server-ui
     restart: always
     environment:
       REACT_APP_UI_PORT: ${REACT_APP_UI_PORT}
@@ -59,28 +59,28 @@ services:
         REACT_APP_UI_PORT: ${REACT_APP_UI_PORT}
         REACT_APP_API_HOST: ${REACT_APP_API_HOST}
     depends_on:
-      - org-project-api
-    ports:
-      - 9030:${REACT_APP_UI_PORT}
+      - uv-iga-server-api
+#    ports:
+#      - 9030:${REACT_APP_UI_PORT}
     networks:
-      - org-project
+      - uv-iga-server
 
-  org-project-pgadmin:
-    container_name: org-project-pgadmin
+  uv-iga-server-pgadmin:
+    container_name: uv-iga-server-pgadmin
     restart: always
     image: dpage/pgadmin4
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PG_ADMIN_EMAIL}
       PGADMIN_DEFAULT_PASSWORD: ${PG_ADMIN_PASSWORD}
     depends_on:
-      - org-project-db
-    ports:
-      - 9040:80
+      - uv-iga-server-db
+#    ports:
+#      - 9040:80
     networks:
-      - org-project
+      - uv-iga-server
 
-  org-project-duckdns:
-    container_name: org-project-duckdns
+  uv-iga-server-duckdns:
+    container_name: uv-iga-server-duckdns
     restart: always
     image: ghcr.io/linuxserver/duckdns
     environment:
@@ -91,8 +91,8 @@ services:
       DUCKDNS_TOKEN: ${DUCKDNS_TOKEN}
       LOG_FILE: ${LOG_FILE}
     networks:
-      - org-project
+      - uv-iga-server
 
 networks:
-  org-project:
-    name: org-project
+  uv-iga-server:
+    name: uv-iga-server
