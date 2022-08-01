@@ -1,31 +1,36 @@
 import Joi from "joi";
 
+const id = Joi.number().integer();
 const uuid = Joi.string();
-const name = Joi.string().min(2);
 const alias = Joi.string().min(2);
-const password = Joi.string().min(2);
+const name = Joi.string().min(2);
+const hostname = Joi.string();
+const pid = Joi.number().min(0);
+const connected = Joi.bool();
 
-const createUserSchema = Joi.object({
-  uuid: uuid.required(),
-  name: name.required(),
-  alias: alias.required(),
-  password: password.required(),
-});
-
-const updateUserSchema = Joi.object({
-  uuid: uuid.required(),
+const createAgentSchema = Joi.object({
+  id: id.required(),
+  alias,
   alias,
   name,
-  password,
+  hostname,
+  pid,
+  connected,
 });
 
-const getUserSchema = Joi.object({
-  uuid: uuid.required(),
+const updateAgentSchema = Joi.object({
+  id: id.required(),
+  uuid,
+  alias,
+  name,
+  hostname,
+  pid,
+  connected,
 });
 
-const loginUserSchema = Joi.object({
-  alias: alias.required(),
-  password: password.required(),
+const getAgentSchema = Joi.object({
+  id: id.required(),
+  uuid,
 });
 
-export { createUserSchema, updateUserSchema, getUserSchema, loginUserSchema };
+export { createAgentSchema, updateAgentSchema, getAgentSchema };

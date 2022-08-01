@@ -3,10 +3,15 @@ import { Model, DataTypes, Sequelize } from "sequelize";
 const AGENT_TABLE = "agents";
 
 const AgentSchema = {
+  id: {
+    type: DataTypes.INTEGER,
+    autoIncrement: true,
+    allowNull: false,
+    primaryKey: true,
+  },
   uuid: {
     type: DataTypes.STRING,
     allowNull: false,
-    primaryKey: true,
   },
   alias: {
     type: DataTypes.STRING,
@@ -31,10 +36,18 @@ const AgentSchema = {
     allowNull: false,
     defaultValue: false,
   },
+  createAt: {
+    allowNull: true,
+    field: "created_at",
+    type: DataTypes.DATE,
+    defaultValue: Sequelize.NOW,
+  },
 };
 
 class Agent extends Model {
-  static associate() {}
+  static associate(models) {
+    this.hasMany(models.Metric, { as: "metrics", foreignKey: "agentId" });
+  }
 
   static config(sequelize) {
     return {
