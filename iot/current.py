@@ -30,5 +30,5 @@ while True:
     rms = getRMS(samplesData)
     value = rms*factor
     insert(value,2)
-    print("%.2f" % (value)) #Amperes
+    #print("%.2f" % (value)) #Amperes
     time.sleep(1)

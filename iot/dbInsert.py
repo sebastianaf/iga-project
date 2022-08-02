@@ -22,10 +22,10 @@ def insert(value,type):
 
         connection.commit()
         count = cursor.rowcount
-        print(count, "OK")
+        #print("OK")
 
     except (Exception, psycopg2.Error) as error:
-        print("FAIL", error)
+        #print("FAIL")
 
     finally:
         if connection:
