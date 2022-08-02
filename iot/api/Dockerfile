@@ -1,4 +1,4 @@
-FROM arm32v6/node
+FROM node:12
 COPY ["package.json","package-lock.json","/usr/org/app/"]
 WORKDIR /usr/org/app
 RUN npm install
