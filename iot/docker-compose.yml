@@ -1,34 +1,5 @@
 version: "3.8"
-
 services:
-  uv-iga-iot-api:
-    container_name: uv-iga-iot-api
-    image: uv-iga-iot-api
-    restart: always
-    environment:
-      API_PORT: ${API_PORT}
-      API_CLIENT: ${API_CLIENT}
-      API_LOG: ${API_LOG}
-      API_CREATE_ADMIN: ${API_CREATE_ADMIN}
-      API_TOKEN: ${API_TOKEN}
-      API_TOKEN_EXPIRATION_TIME: ${API_TOKEN_EXPIRATION_TIME}
-      DB_DATABASE: ${DB_DATABASE}
-      DB_USER: ${DB_USER}
-      DB_PASSWORD: ${DB_PASSWORD}
-      DB_HOST: ${DB_HOST}
-      TZ: ${TZ}
-    build:
-      context: ./api
-      dockerfile: Dockerfile
-      args:
-        API_PORT: ${API_PORT}
-    ports:
-      - 9010:${API_PORT}
-    depends_on:
-      - uv-iga-iot-db
-    networks:
-      - uv-iga
-
   uv-iga-iot-db:
     container_name: uv-iga-iot-db
     restart: always
