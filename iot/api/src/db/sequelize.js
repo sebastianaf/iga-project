@@ -20,7 +20,7 @@ const sequelize = new Sequelize(database, user, password, {
  /**
   * Sync the models with the database
   */
- sequelize.sync({ force: true });
+ sequelize.sync({ force: false });
  console.log(`Syncing models... OK`);
 
 export default sequelize;
