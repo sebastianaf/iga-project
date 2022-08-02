@@ -1,18 +1,19 @@
 import psycopg2
-from decouple import config
 
 def insert(value,type):
-    print(config("DB_USER"))
-    print(config("DB_PASSWORD"))
-    print(config("DB_DATABASE"))
-    print(config("DB_HOST"))
-    print(config("DB_PORT"))
+    
+    DB_USER=
+    DB_PASSWORD=
+    DB_DATABASE=
+    DB_HOST=
+    DB_PORT=
+    
     try:
-        connection = psycopg2.connect(user=config("DB_USER"),
-                                    password=config("DB_PASSWORD"),
-                                    host=config("DB_HOST"),
-                                    port=config("DB_PORT"),
-                                    database=config("DB_DATABASE"))
+        connection = psycopg2.connect(user=DB_USER,
+                                    password=DB_PASSWORD,
+                                    host=DB_HOST,
+                                    port=DB_PORT,
+                                    database=DB_DATABASE)
         cursor = connection.cursor()
 
         postgres_insert_query = """ INSERT INTO metrics (value, metric_type_id) VALUES (%s,%s)"""
