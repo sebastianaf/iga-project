@@ -1,5 +1,5 @@
 import psycopg2
-from decouple import config
+from python-decouple import config
 
 def insert(value,type):
     print(config("DB_USER"))
