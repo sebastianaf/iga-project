@@ -3,7 +3,7 @@ import os
 import time
 import math
 import ADS1x15
-import dbInsert
+from dbInsert import insert
 
 analogInput = 1
 factor = 53

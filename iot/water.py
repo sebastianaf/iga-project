@@ -1,6 +1,6 @@
 import RPi.GPIO as GPIO
 import time, sys
-import dbInsert
+from dbInsert import insert
 
 FLOW_SENSOR_GPIO = 21
 global count
