@@ -2,11 +2,11 @@ import psycopg2
 
 def insert(value,type):
     
-    DB_USER=
-    DB_PASSWORD=
-    DB_DATABASE=
-    DB_HOST=
-    DB_PORT=
+    DB_USER=""
+    DB_PASSWORD=""
+    DB_DATABASE=""
+    DB_HOST=""
+    DB_PORT=5432
     
     try:
         connection = psycopg2.connect(user=DB_USER,

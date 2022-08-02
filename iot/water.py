@@ -5,7 +5,7 @@ from dbInsert import insert
 FLOW_SENSOR_GPIO = 21
 global count
 count = 0
-factor = 0.849399
+factor = 3.642369
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(FLOW_SENSOR_GPIO, GPIO.IN, pull_up_down = GPIO.PUD_UP)
@@ -25,8 +25,8 @@ while True:
         flow = (count / factor)
         #print("%.2f" % (flow)) #lts/min
         count = 0
-        time.sleep(0.5)
         insert(flow,1)
+        time.sleep(0.5)
     except KeyboardInterrupt:
         print('\nkeyboard interrupt!')
         GPIO.cleanup()
