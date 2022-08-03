@@ -33,7 +33,6 @@ def run():
         insert(flow,1)
         time.sleep(0.5)
     except:
-        GPIO.cleanup()
         time.sleep(2)
 
 while True:
