@@ -33,7 +33,7 @@ def run():
         insert(value,2)
         print("%.2f" % (value)) #Amperes
         time.sleep(1)
-    except():
+    except:
         time.sleep(2)
         run()
     
