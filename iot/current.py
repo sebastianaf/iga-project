@@ -37,7 +37,6 @@ def run():
         time.sleep(1)
     except:
         time.sleep(2)
-        run()
     
 
 while True:

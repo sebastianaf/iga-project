@@ -32,11 +32,9 @@ def run():
         count = 0
         insert(flow,1)
         time.sleep(0.5)
-    except KeyboardInterrupt:
-        print('\nkeyboard interrupt!')
+    except:
         GPIO.cleanup()
-        sys.exit()
-
+        time.sleep(2)
 
 while True:
     run()
