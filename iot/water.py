@@ -13,7 +13,8 @@ def run():
         start_counter = 1
         time.sleep(0.5)
         start_counter = 0
-        flow = (global count / factor)
+        global count
+        flow = (count / factor)
         #print("%.2f" % (flow)) #lts/min
         count = 0
         insert(flow,1)
