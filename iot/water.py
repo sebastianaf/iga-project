@@ -4,7 +4,6 @@ from dbInsert import insert
 from environment import setEnvironment
 
 FLOW_SENSOR_GPIO = 21
-global count
 count = 0
 factor = 3.642369
 setEnvironment()
@@ -14,7 +13,7 @@ def run():
         start_counter = 1
         time.sleep(0.5)
         start_counter = 0
-        flow = (count / factor)
+        flow = (global count / factor)
         #print("%.2f" % (flow)) #lts/min
         count = 0
         insert(flow,1)
