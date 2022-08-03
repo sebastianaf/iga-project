@@ -9,13 +9,12 @@ factor = 3.642369
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(FLOW_SENSOR_GPIO, GPIO.IN, pull_up_down = GPIO.PUD_UP)
+GPIO.add_event_detect(FLOW_SENSOR_GPIO, GPIO.FALLING, callback=countPulse)
 
 def countPulse(channel):
    global count
    if start_counter == 1:
       count = count+1
-
-GPIO.add_event_detect(FLOW_SENSOR_GPIO, GPIO.FALLING, callback=countPulse)
 
 while True:
     try:
