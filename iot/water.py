@@ -1,11 +1,13 @@
 import RPi.GPIO as GPIO
 import time, sys
 from dbInsert import insert
+from environment import setEnvironment
 
 FLOW_SENSOR_GPIO = 21
 global count
 count = 0
 factor = 3.642369
+setEnvironment()
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(FLOW_SENSOR_GPIO, GPIO.IN, pull_up_down = GPIO.PUD_UP)

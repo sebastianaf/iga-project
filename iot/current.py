@@ -1,15 +1,17 @@
-
 import os
 import time
 import math
 import ADS1x15
 from dbInsert import insert
+from environment import setEnvironment
 
 analogInput = 1
 factor = 53
 
 ADS = ADS1x15.ADS1015(1)
 ADS.setGain(ADS.PGA_1_024V)
+
+setEnvironment()
 
 def getRMS(values):
     i_peak = max(values)

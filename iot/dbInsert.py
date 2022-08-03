@@ -1,19 +1,15 @@
 import psycopg2
+import os
 
 def insert(value,type):
-    
-    DB_USER=""
-    DB_PASSWORD=""
-    DB_DATABASE=""
-    DB_HOST=""
-    DB_PORT=5432
-    
     try:
-        connection = psycopg2.connect(user=DB_USER,
-                                    password=DB_PASSWORD,
-                                    host=DB_HOST,
-                                    port=DB_PORT,
-                                    database=DB_DATABASE)
+        connection = psycopg2.connect(
+            user=os.environ['DB_USER'],
+            password=os.environ['DB_PASSWORD'],
+            host=os.environ['DB_HOST'],
+            port=os.environ['DB_PORT'],
+            database=os.environ['DB_DATABASE'])
+            
         cursor = connection.cursor()
 
         postgres_insert_query = """ INSERT INTO metrics (value, metric_type_id) VALUES (%s,%s)"""
