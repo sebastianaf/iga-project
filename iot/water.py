@@ -5,6 +5,7 @@ from environment import setEnvironment
 
 FLOW_SENSOR_GPIO = 21
 count = 0
+start_counter = 0
 factor = 3.642369
 setEnvironment()
 
@@ -13,6 +14,7 @@ GPIO.setup(FLOW_SENSOR_GPIO, GPIO.IN, pull_up_down = GPIO.PUD_UP)
 
 def countPulse(channel):
    global count
+   global start_counter
    if start_counter == 1:
       count = count+1
 
@@ -20,6 +22,7 @@ GPIO.add_event_detect(FLOW_SENSOR_GPIO, GPIO.FALLING, callback=countPulse)
 
 def run():
     try:
+        global start_counter
         start_counter = 1
         time.sleep(0.5)
         start_counter = 0
