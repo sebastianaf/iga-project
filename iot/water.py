@@ -18,18 +18,22 @@ def countPulse(channel):
    if start_counter == 1:
       count = count+1
 
-while True:
+def run():
     try:
         start_counter = 1
         time.sleep(0.5)
         start_counter = 0
         flow = (count / factor)
         count = 0
-        print("%.2f" % (flow)) #lts/min
         insert(flow,1)
+        print("%.2f" % (flow)) #lts/min
         time.sleep(0.5)
-    except KeyboardInterrupt:
-        print('\nkeyboard interrupt!')
+    except:
         GPIO.cleanup()
-        sys.exit()
+        time.sleep(2)
+        run()
+
+while True:
+    run()
+    
 
