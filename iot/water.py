@@ -22,8 +22,8 @@ while True:
         time.sleep(0.5)
         start_counter = 0
         flow = (count / factor)
-        #print("%.2f" % (flow)) #lts/min
         count = 0
+        print("%.2f" % (flow)) #lts/min
         insert(flow,1)
         time.sleep(0.5)
     except KeyboardInterrupt:
