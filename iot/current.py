@@ -32,10 +32,11 @@ def run():
 
         rms = getRMS(samplesData)
         value = rms*factor
-        insert(value,2)
         print("%.2f" % (value)) #Amperes
+        insert(value,2)
         time.sleep(1)
-    except:
+    except Exception as error:
+        print(error)
         time.sleep(2)
     
 

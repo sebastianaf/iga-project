@@ -32,7 +32,8 @@ def run():
         count = 0
         insert(flow,1)
         time.sleep(0.5)
-    except:
+    except Exception as error:
+        print(error)
         time.sleep(2)
 
 while True:
