@@ -5,7 +5,7 @@ import ADS1x15
 from dbInsert import insert
 from environment import setEnvironment
 
-analogInput = 1
+analogInput = 0
 factor = 53
 
 ADS = ADS1x15.ADS1015(1)
