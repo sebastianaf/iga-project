@@ -3,7 +3,7 @@ services:
   uv-iga-iot-db:
     container_name: uv-iga-iot-db
     restart: always
-    image: arm32v7/postgres:latest
+    image: postgres:latest
     environment:
       POSTGRES_USER: ${DB_USER}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
