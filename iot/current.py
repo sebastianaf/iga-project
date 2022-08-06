@@ -6,7 +6,7 @@ from dbInsert import insert
 from environment import setEnvironment
 
 analogInput = 0
-factor = 53
+factor = 80
 
 ADS = ADS1x15.ADS1015(1)
 ADS.setGain(ADS.PGA_1_024V)
