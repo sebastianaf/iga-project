@@ -35,7 +35,7 @@ const DefaultLayout = (props) => {
         >
           <Header />
           <div
-            className={`flex justify-center flex-grow items-start overflow-x-hidden overflow-y-auto p-1 md:p-5 bg-slate-100`}
+            className={`flex justify-center flex-grow items-start overflow-x-hidden overflow-y-auto p-1 md:p-5`}
           >
             {children}
           </div>

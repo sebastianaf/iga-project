@@ -15,11 +15,11 @@ class UserService {
     const obj = await models.User.findOne({ where: { alias: "admin" } });
 
     const firstUser = {
-      alias: "admin",
-      password: `admin`,
+      alias: `admin`,
+      password: `thisIsApassword`,
       idUser: 1,
-      name: "Admin",
-      role: "admin",
+      name: `Admin`,
+      role: `admin`,
     };
     const salt = await bcryptjs.genSalt(10);
     const encryptedPassword = await bcryptjs.hash(firstUser.password, salt);
@@ -45,7 +45,7 @@ class UserService {
      */
     let user = await models.User.findOne({ where: { alias } });
     if (user) {
-      const correct = await bcryptjs.compare(password, user.password);
+      const correct = await bcryptjs.compare(password,user.password);
       if (correct) {
         user.dataValues.password = undefined;
         let token = jwt.sign({ ...user.dataValues }, process.env.API_TOKEN, {

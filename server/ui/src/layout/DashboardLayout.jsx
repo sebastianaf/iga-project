@@ -8,7 +8,7 @@ const DashboardLayout = ({children}) => {
           className={`p-1 md:p-2 w-full h-auto`}
         >
           <div
-            className={`w-full h-full shadow border rounded-lg bg-white p-1 md:p-5`}
+            className={`w-full h-full`}
           >
             {children}
           </div>
