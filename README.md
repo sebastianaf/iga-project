@@ -1,5 +1,7 @@
 # iga-project
 
+This app has been deployed on [https://homergy.enerfris.com/](https://homergy.enerfris.com/)
+
 This code is the final project of Introduction to Environmental Manage of the Universidad del Valle Cali, CO. It's a prototype of IOT based house water and energy consumption app, for more info read the `latex/main.pdf` essay.
 
 ![app architecture diagram](https://github.com/sebastianaf/iga-project/blob/main/latex/img/achitecture.png?raw=true)
